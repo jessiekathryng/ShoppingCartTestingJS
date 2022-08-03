@@ -1,4 +1,4 @@
-// Test Cases
+// 9 Test Cases
 //Canary Test
 //Can create an instance of the checkout class
 //Can add an item price
@@ -9,8 +9,10 @@
 //Can apply discount rules to the total
 //Exception is thrown for item added without a price
 
+//This defines the variable 'Checkout'
+const Checkout = require('./ShopCartCode.js');
 var expect = require('chai').expect;
-
-it('Is True', function(){
-    expect(true).to.equal(true);
+//Test 1
+it('Can create checkout', function(){
+    var checkout = new Checkout();
 });
