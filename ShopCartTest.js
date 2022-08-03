@@ -8,3 +8,8 @@
 //Can apply discount rules to the total
 //Exception is thrown for item added without a price
 
+var expect = require('chai').expect;
+
+instanceof('Is True', function(){
+    expect(true).to.equal(true);
+});
