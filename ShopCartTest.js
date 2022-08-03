@@ -1,4 +1,5 @@
 // Test Cases
+//Canary Test
 //Can create an instance of the checkout class
 //Can add an item price
 //Can add an item
@@ -10,6 +11,6 @@
 
 var expect = require('chai').expect;
 
-instanceof('Is True', function(){
+it('Is True', function(){
     expect(true).to.equal(true);
 });
