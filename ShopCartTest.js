@@ -5,8 +5,8 @@
 //Can add an item - done
 //Can calculate the current total - done
 //Can add multiple items and get correct total - done
-//Can add discount rules - 
-//Can apply discount rules to the total
+//Can add discount rules - done
+//Can apply discount rules to the total - done
 //Exception is thrown for item added without a price
 
 //This defines the variable 'Checkout'
@@ -18,7 +18,7 @@ var checkout;
 beforeEach(function(){
     checkout = new Checkout();
     checkout.addItemPrice('ItemA', 1);
-    checkout.addItemPrice('ItemB', 2);
+    checkout.addItemPrice('ItemB', 1);
 });
 //Refactored: checkout declaration is duplicated in test 1 and 2;
 // Test 1 not necessary;
@@ -59,10 +59,20 @@ it('Can add multiple items and get correct total', function(){
     //checkout.addItemPrice('ItemB', 2);
     checkout.addItem('ItemA');
     checkout.addItem('ItemB');
-    expect(checkout.calculateTotal()).to.equal(3);
+    expect(checkout.calculateTotal()).to.equal(2);
 });
 //Test 6
 it('Can add discount rules', function(){
+        //Discount perameters: item type, number of items req for discount, discounted price
     checkout.addDiscount('ItemA', 3, 2);
 });
+//Test 7
+it('Can apply discount rules to the total', function(){
+    checkout.addDiscount('ItemA', 3, 2);
+    checkout.addItem('ItemA');
+    checkout.addItem('ItemA');
+    checkout.addItem('ItemA');
+    expect(checkout.calculateTotal()).to.equal(2);
+});
+
 
