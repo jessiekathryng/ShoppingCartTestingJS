@@ -4,8 +4,8 @@
 //Can add an item price - done
 //Can add an item - done
 //Can calculate the current total - done
-//Can add multiple items and get correct total
-//Can add discount rules
+//Can add multiple items and get correct total - done
+//Can add discount rules - 
 //Can apply discount rules to the total
 //Exception is thrown for item added without a price
 
@@ -17,6 +17,8 @@ var checkout;
 
 beforeEach(function(){
     checkout = new Checkout();
+    checkout.addItemPrice('ItemA', 1);
+    checkout.addItemPrice('ItemB', 2);
 });
 //Refactored: checkout declaration is duplicated in test 1 and 2;
 // Test 1 not necessary;
@@ -43,23 +45,24 @@ it('Can add an item', function(){
 //Refactored: addItemPrice and addItem is now duplicated in this test
 //Test 2 & 3 are no longer necessary; being carried out in Test 4
 it('Can calculate the current total', function(){
-    checkout.addItemPrice('ItemA', '1');
+    //Refactored: Prices for item A and B are duplicated; 
+    //Moved to beforeEach fixture in beginning
+    //checkout.addItemPrice('ItemA', '1');
     checkout.addItem('ItemA');
-    expect(checkout.calculateTotal()).to.equal('01');
+    expect(checkout.calculateTotal()).to.equal(1);
 });
 //Test 5
 it('Can add multiple items and get correct total', function(){
-    checkout.addItemPrice('ItemA', 1);
-    checkout.addItemPrice('ItemB', 2);
+    //Refactored: Prices for item A and B are duplicated; 
+    //Moved to beforeEach fixture in beginning
+    //checkout.addItemPrice('ItemA', 1);
+    //checkout.addItemPrice('ItemB', 2);
     checkout.addItem('ItemA');
     checkout.addItem('ItemB');
     expect(checkout.calculateTotal()).to.equal(3);
 });
-
-
-/*
-it('Can add an item price', function(){
-    var checkout = new Checkout();
-    checkout.addItemPrice('a', '1');
+//Test 6
+it('Can add discount rules', function(){
+    checkout.addDiscount('ItemA', 3, 2);
 });
-*/
+

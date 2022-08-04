@@ -21,9 +21,12 @@ module.exports = class Checkout{
     /*currentTotal(total){
         return (currentTotal);
     }*/
-    
+
     //Method for Test 5
     calculateTotal(){ 
         return this.total;
+    }
+    addDiscount(item, itemCount, discountPrice){
+        
     }
 }
