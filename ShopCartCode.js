@@ -6,4 +6,7 @@ module.exports = class Checkout{
     //Method for Test 3
     addItem(item){
     }
+    currentTotal(total){
+        return 1;
+    }
 };
