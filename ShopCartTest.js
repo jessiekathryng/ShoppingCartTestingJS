@@ -3,7 +3,7 @@
 //Can create an instance of the checkout class - done
 //Can add an item price - done
 //Can add an item - done
-//Can calculate the current total 
+//Can calculate the current total - done
 //Can add multiple items and get correct total
 //Can add discount rules
 //Can apply discount rules to the total
@@ -12,6 +12,8 @@
 //This defines the variable 'Checkout'
 const Checkout = require('./ShopCartCode.js');
 var expect = require('chai').expect;
+//added for test 5
+var checkout;
 
 beforeEach(function(){
     checkout = new Checkout();
@@ -41,16 +43,21 @@ it('Can add an item', function(){
 //Refactored: addItemPrice and addItem is now duplicated in this test
 //Test 2 & 3 are no longer necessary; being carried out in Test 4
 it('Can calculate the current total', function(){
-    checkout.addItemPrice('item', '1');
-    checkout.addItem('item');
-    expect(checkout.currentTotal()).to.equal(1);
+    checkout.addItemPrice('ItemA', '1');
+    checkout.addItem('ItemA');
+    expect(checkout.calculateTotal()).to.equal('01');
+});
+//Test 5
+it('Can add multiple items and get correct total', function(){
+    checkout.addItemPrice('ItemA', 1);
+    checkout.addItemPrice('ItemB', 2);
+    checkout.addItem('ItemA');
+    checkout.addItem('ItemB');
+    expect(checkout.calculateTotal()).to.equal(3);
 });
 
+
 /*
-it('Can add an item price', function(){
-    var checkout = new Checkout();
-    checkout.addItemPrice('a', '1');
-});
 it('Can add an item price', function(){
     var checkout = new Checkout();
     checkout.addItemPrice('a', '1');
