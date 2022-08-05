@@ -20,6 +20,11 @@ module.exports = class Checkout{
     }
     //Method for Test 3
     addItem(item){
+        //Added for Test 8
+        //Added method to check if passed in item has a price
+        if( this.prices[item] == undefined){
+            throw('No price for this item' + item);
+        }
         //added for Test 5
         //this.total = this.total + this.prices[item];
         //Refactored for Test 7

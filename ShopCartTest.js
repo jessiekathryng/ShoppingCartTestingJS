@@ -74,5 +74,10 @@ it('Can apply discount rules to the total', function(){
     checkout.addItem('ItemA');
     expect(checkout.calculateTotal()).to.equal(2);
 });
+//Test 8
+it('Throws an exception when an item with no price is added', function(){
+    expect(function(){checkout.addItem('ItemC')}).to.throw();
+});
+
 
 
